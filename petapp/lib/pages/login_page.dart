@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -14,10 +15,15 @@ class LoginPage extends StatelessWidget {
     // required this.obscureText,
   });
 
-  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void signUserIn() {}
+  void signUserIn() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +61,7 @@ class LoginPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: TextField(
-                controller: usernameController,
+                controller: emailController,
                 obscureText: false,
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
@@ -126,7 +132,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: const Center(
                   child: Text(
-                    'Sign In?',
+                    'Sign In',
                     style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
