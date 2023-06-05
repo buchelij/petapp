@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:petapp/pages/auth_page.dart';
-import 'package:petapp/pages/home_page.dart';
-import 'package:petapp/pages/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:petapp/pages/home_page.dart';
+import 'package:petapp/pages/profile_page.dart';
+import 'package:petapp/pages/register_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //contained const for the authpage
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuthPage(),
+      home: ProfilePage1(),
     );
   }
 }

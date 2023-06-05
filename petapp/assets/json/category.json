@@ -1,0 +1,16 @@
+{
+    "category": [
+        {
+            "image": "food.png",
+            "text": "Foods"
+        },
+        {
+            "image": "accessories.jpg",
+            "text": "Accesories"
+        },
+        {
+            "image": "toys.png",
+            "text": "Toys"
+        }
+    ]
+}
