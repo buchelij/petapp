@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:petapp/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -231,40 +232,39 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
 
-              Row(
-                children: const [
-                  // google button
-                  // image.asset('google.png')
-
-                  //apple button
-                  // image.asset('apple.png')
-                ],
-              ),
-
               const SizedBox(height: 50),
 
               // google + apple sign in buttons
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // google button
-
-                  Image.asset(
-                    'lib/images/google.png',
-                    height: 40,
-                  ),
-
-                  const SizedBox(width: 15),
-
-                  // apple button
-                  Image.asset(
-                    'lib/images/apple.png',
-                    height: 40,
-                  ),
-                ],
+              GestureDetector(
+                onTap: () => AuthService().signInWithGoogle(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // google button
+                    Image.asset(
+                      'lib/images/google.png',
+                      height: 40,
+                    ),
+                  ],
+                ),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(width: 50),
+
+              GestureDetector(
+                // onTap: () => AuthService().signInWithGoogle(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      'lib/images/apple.png',
+                      height: 40,
+                    )
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 40),
 
               //NOT A MEMBER? REGISTER HERE
               Padding(
